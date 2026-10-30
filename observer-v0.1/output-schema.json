@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "cw-observer/eval/v0.1",
+  "title": "观察者 Agent 评估结果",
+  "description": "观察者对一段访谈记录的评估结果。这是观察者对外的公开契约：其他 Agent 与工作台只读这一份输出，不读观察者内部状态。",
+  "type": "object",
+  "required": ["schema", "rubric_version", "items", "weighted_total", "coverage", "profile", "suggestions"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "cw-observer/eval/v0.1",
+      "description": "输出格式版本号。消费方先看这个字段，不匹配就别解析。"
+    },
+    "rubric_version": {
+      "type": ["integer", "null"],
+      "description": "评分所依据的 rubric.json 的 version。改了 rubric 就要跟着变，用来判断两次评估是否可比。"
+    },
+    "items": {
+      "type": "array",
+      "description": "逐项评分，条目与顺序由 rubric.json 决定，不看模型返回了什么。",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "score", "reason", "quote", "note"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "对应 rubric.json 里的 id，如 no-interruption。"
+          },
+          "score": {
+            "type": ["integer", "null"],
+            "minimum": 1,
+            "maximum": 5,
+            "description": "1 到 5 的整数。数据不足以判断时为 null，不是 0，也不是默认中间分。"
+          },
+          "reason": {
+            "type": "string",
+            "description": "为什么给这个分。score 为 null 时写缺什么数据。"
+          },
+          "quote": {
+            "type": "string",
+            "description": "记录里支撑这条判断的原话。没有可引用的内容时空字符串。"
+          },
+          "note": {
+            "type": "string",
+            "description": "不确定性说明。score 为 null 时必填，写清缺哪一类数据才补得上。"
+          }
+        }
+      }
+    },
+    "weighted_total": {
+      "type": ["number", "null"],
+      "description": "加权总分，满分 5。由本地按 rubric 权重算出，不采信模型自报的数字。评不出的项排除后重新归一化权重；全评不出时为 null。",
+      "minimum": 1,
+      "maximum": 5
+    },
+    "coverage": {
+      "type": "number",
+      "description": "评得出的项占的权重比例，0 到 1。coverage 低说明这份记录缺数据，总分再高也不可信。",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "profile": {
+      "type": "string",
+      "description": "一句话总结采访者这段访谈的表现。只评价访谈行为，不评价受访者性格。"
+    },
+    "suggestions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "给采访者的建议。每条具体到能照着说出口，不写「应该多倾听」这类空话。"
+    }
+  }
+}

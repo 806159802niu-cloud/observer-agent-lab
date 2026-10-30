@@ -35,10 +35,17 @@ node tools/orchestrator/run.mjs --rounds 8 --mode assisted
 
 ```
 docs/
+  观察者Agent-V0.1交付说明.md  V0.1 交付了什么、三条设计约定、待组长确认项
   观察者评分标准-v2提案.md   三层评分结构（过程/信息获取/可验证性），我的主要产出
   QA-常见问题.md            19 问，给组员看的口径对齐
   demo-演示说明.md          现场演示怎么讲、被问什么、不能承诺什么
   终端上手小抄.md           我自己学命令行时整理的四条命令
+
+observer-v0.1/              观察者 Agent V0.1 的交付本体
+  README.md                 版本说明：包含什么、不做什么、怎么用、怎么验收
+  output-schema.json        评估输出的公开契约（cw-observer/eval/v0.1）
+  samples/transcript-01.md  样例访谈记录（4 轮，含一处人工打断标记）
+  samples/eval-01.json      上面那份记录的真实评估输出
 
 tools/orchestrator/
   run.mjs                  编排器：把三个 Agent 串成一场访谈
@@ -84,4 +91,5 @@ samples-records/           两场实测记录，JSON + Markdown 各一份
 - 2026-10-30 观察者人格与评分口径落进组装层
 - 2026-10-30 探明三个 Agent 的非交互调用方式，写编排器，跑通自主访谈
 - 2026-10-30 自己敲命令跑通第一场，状态到「可演示」
+- 2026-10-30 观察者 Agent V0.1 定版：输出契约、样例实测、版本说明
 - 2026-10-30 推到团队仓库 `feat/agent-personas` 分支，同时在这里留一份存档
