@@ -1,0 +1,73 @@
+<!--pages/history/history.wxml-->
+<view class="container">
+
+  <!-- 筛选 -->
+  <view class="filter-bar">
+    <view 
+      class="filter-btn {{filter === 'all' ? 'active' : ''}}" 
+      data-filter="all"
+      bindtap="onFilterTap"
+    >全部</view>
+    <view 
+      class="filter-btn {{filter === 'assisted' ? 'active orange' : ''}}" 
+      data-filter="assisted"
+      bindtap="onFilterTap"
+    >观察者介入</view>
+    <view 
+      class="filter-btn {{filter === 'baseline' ? 'active gray' : ''}}" 
+      data-filter="baseline"
+      bindtap="onFilterTap"
+    >基线</view>
+  </view>
+
+  <!-- 列表 -->
+  <view class="interview-list" wx:if="{{interviews.length > 0}}">
+    <view 
+      class="interview-card" 
+      wx:for="{{interviews}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onInterviewTap"
+    >
+      <view class="interview-header">
+        <view class="interview-title">{{item.title}}</view>
+        <view class="tag {{item.mode === 'assisted' ? 'tag-orange' : 'tag-gray'}}">
+          {{item.mode === 'assisted' ? '介入' : '基线'}}
+        </view>
+      </view>
+
+      <view class="interview-meta">
+        <text class="meta-persona">👤 {{item.personaName}}</text>
+        <text class="meta-dot">·</text>
+        <text>{{item.roundCount}} 轮</text>
+        <text class="meta-dot">·</text>
+        <text>{{item.startedAt}}</text>
+      </view>
+
+      <view class="interview-preview">{{item.profile}}</view>
+
+      <view class="interview-footer">
+        <view class="metric">
+          <view class="metric-label">综合评分</view>
+          <view class="metric-value" style="color: #188038;">{{item.weightedTotal}}</view>
+        </view>
+        <view class="metric-divider"></view>
+        <view class="metric">
+          <view class="metric-label">覆盖度</view>
+          <view class="metric-value">{{item.coverage * 100}}%</view>
+        </view>
+        <view class="metric-divider"></view>
+        <view class="metric">
+          <view class="metric-label">埋点召回</view>
+          <view class="metric-value" style="color: #1a73e8;">{{item.recallRate * 100}}%</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty">
+    <view class="empty-icon">📭</view>
+    <view class="empty-text">暂无匹配的访谈记录</view>
+  </view>
+
+</view>

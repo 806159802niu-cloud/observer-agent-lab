@@ -1,0 +1,125 @@
+<!--pages/interview/interview.wxml-->
+<view class="page">
+
+  <!-- 顶部状态栏 -->
+  <view class="top-bar">
+    <view class="top-bar-left">
+      <text class="persona-tag">👤 {{personaName}}</text>
+      <text class="mode-tag tag-orange">观察者介入</text>
+    </view>
+    <view class="progress">
+      <text class="progress-text">{{currentRoundIndex}} / {{roundCount}}</text>
+    </view>
+  </view>
+
+  <!-- 访谈对话区 -->
+  <scroll-view class="chat-area" scroll-y scroll-into-view="round-{{currentRoundIndex}}" scroll-with-animation>
+    
+    <view 
+      wx:for="{{visibleRounds}}" 
+      wx:key="index"
+      id="round-{{index + 1}}"
+      class="round-block"
+    >
+      <!-- 轮次标记 -->
+      <view class="round-header">
+        <view class="round-num">Round {{item.index}}</view>
+        <view class="round-score" style="color: {{item.scoreColor}};">评分 {{item.scoreDisplay}}</view>
+      </view>
+
+      <!-- 发言气泡 -->
+      <view 
+        wx:for="{{item.utterances}}" 
+        wx:for-item="u" 
+        wx:key="speaker"
+        class="utterance-row {{u.speaker}}"
+      >
+        <view class="avatar {{u.avatarClass}}">{{u.speakerLabel}}</view>
+        <view class="bubble-wrapper">
+          <view class="bubble {{u.speaker}}">
+            <text class="speaker-name">{{u.speakerLabel}}</text>
+            <text class="bubble-text">{{u.text}}</text>
+          </view>
+        </view>
+      </view>
+
+      <!-- 观察者 hint（可展开） -->
+      <view 
+        wx:if="{{index < visibleRounds.length - 1 || completed}}"
+        class="hint-preview"
+        data-index="{{index}}"
+        bindtap="onToggleHint"
+      >
+        <text class="hint-icon">💡</text>
+        <text class="hint-label">{{item.showHint ? '收起观察者点评' : '查看观察者点评'}}</text>
+        <text class="hint-arrow {{item.showHint ? 'expanded' : ''}}">›</text>
+      </view>
+
+      <view wx:if="{{item.showHint}}" class="hint-full">
+        <view class="hint-section">
+          <view class="hint-section-title">追问方向</view>
+          <view class="hint-text">{{item.hint}}</view>
+        </view>
+        <view wx:if="{{item.depthNote}}" class="hint-section">
+          <view class="hint-section-title">洞察深度</view>
+          <view class="hint-text depth">{{item.depthNote}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 访谈完成 -->
+    <view wx:if="{{completed}}" class="completion">
+      <view class="completion-icon">🎉</view>
+      <view class="completion-title">访谈完成</view>
+      <view class="completion-desc">共 {{roundCount}} 轮 · 综合评分 4.82</view>
+      <view class="completion-actions">
+        <view class="btn-secondary" bindtap="onReplay">↻ 重新播放</view>
+        <view class="btn-primary" bindtap="onViewHistory">查看完整复盘</view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+  <!-- 观察者实时面板 -->
+  <view 
+    wx:if="{{showObserverPanel && !completed}}" 
+    class="observer-panel {{isTurningPoint ? 'observer-panel-hot' : ''}}"
+  >
+    <view class="observer-header">
+      <view class="observer-title">
+        <text class="observer-icon">🔍</text>
+        <text>{{isTurningPoint ? '全场关键转折' : '观察者实时点评'}}</text>
+      </view>
+      <view class="observer-score-badge" style="color: {{observerScoreColor}};">{{observerScoreDisplay}}</view>
+    </view>
+    <view class="observer-body">
+      <view class="observer-section">
+        <view class="observer-label">追问方向</view>
+        <view class="observer-text">{{observerHint}}</view>
+      </view>
+      <view wx:if="{{observerDepthNote}}" class="observer-section">
+        <view class="observer-label">当前洞察深度</view>
+        <view class="observer-text depth">{{observerDepthNote}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部控制栏 -->
+  <view class="bottom-bar">
+    <view 
+      class="ctrl-btn auto-btn {{autoPlay ? 'active' : ''}}" 
+      bindtap="onToggleAuto"
+    >
+      <text class="ctrl-icon">{{autoPlay ? '⏸' : '▶'}}</text>
+      <text class="ctrl-label">{{autoPlay ? '暂停自动' : '自动播放'}}</text>
+    </view>
+    <view 
+      class="ctrl-btn next-btn {{completed ? 'done' : ''}}" 
+      bindtap="onNextRound"
+    >
+      <text class="ctrl-icon">{{completed ? '✓' : '›'}}</text>
+      <text class="ctrl-label">{{completed ? '✓ 已完成（点我重放）' : '下一轮'}}</text>
+    </view>
+  </view>
+
+</view>

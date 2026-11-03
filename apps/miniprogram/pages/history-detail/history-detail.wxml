@@ -1,0 +1,131 @@
+<!--pages/history-detail/history-detail.wxml-->
+<view class="container" wx:if="{{interview}}">
+
+  <!-- 顶部摘要 -->
+  <view class="summary-card">
+    <view class="summary-title">{{interview.title}}</view>
+    <view class="summary-meta">
+      <text class="tag {{interview.mode === 'assisted' ? 'tag-orange' : 'tag-gray'}}">
+        {{interview.mode === 'assisted' ? '观察者介入' : '基线'}}
+      </text>
+      <text class="meta-text">👤 {{interview.personaName}} · {{interview.roundCount}} 轮</text>
+      <text class="meta-text">⏱ {{interview.startedAt}}</text>
+    </view>
+    <view class="summary-profile">{{interview.profile}}</view>
+  </view>
+
+  <!-- 关键指标 -->
+  <view class="metrics-row">
+    <view class="metric-card">
+      <view class="metric-num" style="color: #188038;">{{interview.weightedTotal}}</view>
+      <view class="metric-lbl">综合评分</view>
+    </view>
+    <view class="metric-card">
+      <view class="metric-num">{{interview.coverage * 100}}%</view>
+      <view class="metric-lbl">维度覆盖</view>
+    </view>
+    <view class="metric-card">
+      <view class="metric-num" style="color: #1a73e8;">{{interview.recallRate * 100}}%</view>
+      <view class="metric-lbl">埋点召回</view>
+    </view>
+  </view>
+
+  <!-- 埋点召回详情 -->
+  <view wx:if="{{detail.recall}}" class="recall-section">
+    <view class="recall-header" bindtap="onToggleRecall">
+      <text class="recall-title">🎯 埋点召回详情</text>
+      <text class="recall-summary">{{recallSummary}}</text>
+      <text class="recall-arrow {{showRecall ? 'expanded' : ''}}">›</text>
+    </view>
+    <view wx:if="{{showRecall}}" class="recall-body">
+      <view class="recall-block">
+        <view class="recall-block-title">未覆盖的关键信息（{{detail.recall.missed.length}} 条）</view>
+        <view 
+          class="miss-item" 
+          wx:for="{{detail.recall.missed}}" 
+          wx:key="*this"
+        >
+          <text class="miss-icon">✗</text>
+          <text class="miss-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 轮次列表 -->
+  <view wx:if="{{detail.rounds.length > 0}}">
+    <view class="rounds-header">
+      <view class="section-title">逐轮复盘</view>
+      <view class="rounds-actions">
+        <text class="action-link" bindtap="onExpandAll">全部展开</text>
+        <text class="action-sep">|</text>
+        <text class="action-link" bindtap="onCollapseAll">全部收起</text>
+      </view>
+    </view>
+
+    <view 
+      class="round-card {{expandedRounds[index] ? 'expanded' : ''}}" 
+      wx:for="{{detail.rounds}}" 
+      wx:key="index"
+    >
+      <view 
+        class="round-summary" 
+        data-index="{{index}}"
+        bindtap="onToggleRound"
+      >
+        <view class="round-badge {{item.isTurningPoint ? 'tp' : ''}}">
+          <text wx:if="{{item.isTurningPoint}}" class="tp-flame">🔥</text>
+          R{{item.index}}
+        </view>
+        <view class="round-preview">
+          <view class="round-faq">
+            <text class="faq-q">Q:</text>
+            <text class="faq-text">{{item.utterances[0].text}}</text>
+          </view>
+        </view>
+        <view class="round-score-mini" style="color: {{item.scoreColor}};">{{item.scoreDisplay}}</view>
+        <view class="round-toggle {{expandedRounds[index] ? 'down' : ''}}">›</view>
+      </view>
+
+      <view wx:if="{{expandedRounds[index]}}" class="round-detail">
+        <!-- 完整对话 -->
+        <view 
+          wx:for="{{item.utterances}}" 
+          wx:for-item="u" 
+          wx:key="speaker"
+          class="utterance-full {{u.speaker}}"
+        >
+          <view class="avatar-mini {{u.avatarClass}}">{{u.speakerLabel}}</view>
+          <view class="utterance-bubble {{u.speaker}}">
+            <text class="utterance-text">{{u.text}}</text>
+          </view>
+        </view>
+
+        <!-- 观察者点评 -->
+        <view class="observer-note {{item.isTurningPoint ? 'hot' : ''}}">
+          <view class="observer-note-title">{{item.isTurningPoint ? '🔥 全场关键转折' : '🔍 观察者点评'}}</view>
+          <view class="note-item">
+            <view class="note-label">追问方向</view>
+            <view class="note-text">{{item.hint}}</view>
+          </view>
+          <view wx:if="{{item.depthNote}}" class="note-item">
+            <view class="note-label">洞察深度</view>
+            <view class="note-text depth">{{item.depthNote}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:else class="empty">
+    <view class="empty-icon">📋</view>
+    <view class="empty-text">该场访谈详情暂未录入 Demo</view>
+    <view class="empty-desc">主 Demo 为《接班与话语权》那场 8 轮完整访谈</view>
+  </view>
+
+  <!-- 底部 CTA -->
+  <view wx:if="{{detail.rounds.length > 0}}" class="cta-section">
+    <view class="btn-primary" bindtap="onReplayInterview">▶ 观看模拟回放</view>
+  </view>
+
+</view>

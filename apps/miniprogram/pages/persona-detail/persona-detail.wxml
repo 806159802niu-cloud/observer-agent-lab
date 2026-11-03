@@ -1,0 +1,63 @@
+<!--pages/persona-detail/persona-detail.wxml-->
+<view class="container" wx:if="{{persona}}">
+
+  <!-- 头部信息 -->
+  <view class="profile-header">
+    <view class="profile-avatar">
+      <text class="avatar-letter">{{persona.name[0]}}</text>
+    </view>
+    <view class="profile-info">
+      <view class="profile-name">{{persona.name}}</view>
+      <view class="profile-role">{{persona.role}}</view>
+      <view class="profile-style" wx:if="{{persona.style}}">
+        <text class="style-label">风格：</text>
+        <text>{{persona.style}}</text>
+      </view>
+    </view>
+    <view class="profile-type-badge" style="background: {{persona.type === 'fictional' ? '#b06000' : '#1a73e8'}};">
+      {{persona.type === 'fictional' ? '虚构' : '真实人物'}}
+    </view>
+  </view>
+
+  <view class="profile-bio card">
+    <view class="bio-title">人物简介</view>
+    <view class="bio-text">{{persona.bio}}</view>
+  </view>
+
+  <!-- 标签 -->
+  <view class="tags-section" wx:if="{{persona.tags.length > 0}}">
+    <text class="tag tag-blue" wx:for="{{persona.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+  </view>
+
+  <!-- 证据列表 -->
+  <view class="section-title">决策案例与证据</view>
+
+  <block wx:if="{{persona.evidence.length > 0}}">
+    <view 
+      class="evidence-card" 
+      wx:for="{{persona.evidence}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onEvidenceTap"
+    >
+      <view class="evidence-header">
+        <view class="evidence-id">{{item.id}}</view>
+        <view class="evidence-type">
+          <text class="tag tag-green">{{item.type === 'decision' ? '决策' : '原话'}}</text>
+        </view>
+      </view>
+      <view class="evidence-title">{{item.title}}</view>
+      <view class="evidence-content">{{item.content}}</view>
+      <view class="evidence-tags">
+        <text class="tag tag-gray" wx:for="{{item.tags}}" wx:for-item="t" wx:key="*this">{{t}}</text>
+      </view>
+    </view>
+  </block>
+
+  <view wx:else class="empty">
+    <view class="empty-icon">📭</view>
+    <view class="empty-text">知识库待补充</view>
+    <view class="empty-desc">该人物的决策案例和关键原话尚未录入</view>
+  </view>
+
+</view>

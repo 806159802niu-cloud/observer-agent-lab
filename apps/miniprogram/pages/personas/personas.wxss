@@ -1,0 +1,124 @@
+/* pages/personas/personas.wxss */
+
+.page-intro {
+  padding: 16rpx 8rpx 32rpx;
+}
+
+.page-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 8rpx;
+}
+
+.page-sub {
+  font-size: 26rpx;
+  color: #80868b;
+}
+
+.persona-list {
+  margin-bottom: 32rpx;
+}
+
+.persona-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 20rpx;
+  padding: 32rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.persona-card:active {
+  background: #f8f9fa;
+}
+
+.persona-avatar {
+  position: relative;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.avatar-letter {
+  font-size: 48rpx;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.avatar-type {
+  position: absolute;
+  bottom: -4rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18rpx;
+  color: #ffffff;
+  padding: 2rpx 12rpx;
+  border-radius: 16rpx;
+}
+
+.persona-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.persona-name {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 4rpx;
+}
+
+.persona-role {
+  font-size: 24rpx;
+  color: #1a73e8;
+  margin-bottom: 8rpx;
+}
+
+.persona-bio {
+  font-size: 24rpx;
+  color: #5f6368;
+  line-height: 1.5;
+  margin-bottom: 12rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.persona-tags {
+  margin-bottom: 8rpx;
+}
+
+.persona-evidence {
+  display: flex;
+  align-items: center;
+  font-size: 22rpx;
+  color: #188038;
+}
+
+.persona-evidence.empty {
+  color: #80868b;
+}
+
+.ev-icon {
+  margin-right: 6rpx;
+}
+
+.ev-count {
+  font-weight: 500;
+}
+
+.persona-arrow {
+  font-size: 44rpx;
+  color: #dadce0;
+  margin-left: 16rpx;
+  flex-shrink: 0;
+}
