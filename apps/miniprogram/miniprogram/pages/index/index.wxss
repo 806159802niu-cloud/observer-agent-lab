@@ -1,0 +1,215 @@
+/* pages/index/index.wxss */
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 24rpx;
+  padding: 48rpx 40rpx;
+  margin-bottom: 32rpx;
+  color: #ffffff;
+}
+
+.hero-title {
+  font-size: 56rpx;
+  font-weight: 700;
+  letter-spacing: 2rpx;
+}
+
+.hero-subtitle {
+  font-size: 32rpx;
+  margin-top: 8rpx;
+  opacity: 0.85;
+}
+
+.hero-desc {
+  font-size: 26rpx;
+  margin-top: 16rpx;
+  opacity: 0.65;
+}
+
+/* Stats */
+.stats-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 32rpx 0;
+  margin-bottom: 32rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-num {
+  font-size: 44rpx;
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: #80868b;
+  margin-top: 4rpx;
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: #e8eaed;
+}
+
+/* Section title */
+.section-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #5f6368;
+  margin: 32rpx 0 16rpx;
+  padding-left: 8rpx;
+}
+
+/* Feature cards */
+.feature-list {
+  margin-bottom: 16rpx;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 20rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.feature-card:active {
+  background: #f8f9fa;
+}
+
+.feature-icon {
+  width: 96rpx;
+  height: 96rpx;
+  border-radius: 24rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  margin-right: 24rpx;
+  flex-shrink: 0;
+}
+
+.feature-info {
+  flex: 1;
+}
+
+.feature-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 6rpx;
+}
+
+.feature-desc {
+  font-size: 24rpx;
+  color: #80868b;
+  line-height: 1.5;
+}
+
+.feature-arrow {
+  font-size: 40rpx;
+  color: #dadce0;
+  margin-left: 16rpx;
+}
+
+/* Recent card */
+.recent-card {
+  background: #ffffff;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  margin-bottom: 24rpx;
+  box-shadow: 0 2rpx 12rpx rgba(0, 0, 0, 0.04);
+}
+
+.recent-card:active {
+  background: #f8f9fa;
+}
+
+.recent-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8rpx;
+}
+
+.recent-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.recent-meta {
+  font-size: 24rpx;
+  color: #80868b;
+  margin-bottom: 24rpx;
+}
+
+.meta-dot {
+  margin: 0 8rpx;
+  color: #dadce0;
+}
+
+.recent-footer {
+  display: flex;
+  align-items: center;
+  padding-top: 24rpx;
+  border-top: 1rpx solid #f1f3f4;
+}
+
+.score-ring {
+  font-size: 48rpx;
+  font-weight: 700;
+}
+
+.score-label {
+  font-size: 22rpx;
+  color: #80868b;
+  margin-left: 8rpx;
+}
+
+.divider-v {
+  width: 1rpx;
+  height: 40rpx;
+  background: #e8eaed;
+  margin: 0 32rpx;
+}
+
+.recall-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.recall-rate {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: #1a73e8;
+}
+
+.recall-label {
+  font-size: 22rpx;
+  color: #80868b;
+}
+
+/* CTA */
+.cta-section {
+  margin-top: 48rpx;
+  margin-bottom: 32rpx;
+}
+
+.cta-section .btn-primary {
+  padding: 32rpx;
+  font-size: 32rpx;
+}

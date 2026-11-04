@@ -1,0 +1,205 @@
+<!--pages/interviewer/interviewer.wxml-->
+<view class="container">
+
+  <!-- 顶部信息卡 -->
+  <view class="header-card">
+    <view class="header-top">
+      <view class="header-badge">v{{v.version}}</view>
+      <view class="header-status">{{v.status}}</view>
+    </view>
+    <view class="header-title">采访者 Agent</view>
+    <view class="header-position">{{v.core_position}}</view>
+    <view class="header-desc">{{v.role}}</view>
+  </view>
+
+  <!-- 治理三层 -->
+  <view class="group" bindtap="onToggle" data-key="levels">
+    <view class="group-header">
+      <view class="group-title">🏛️ 治理三层</view>
+      <view class="group-arrow {{open.levels ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.levels}}" class="levels-grid">
+      <view class="level-card level-value">
+        <view class="level-name">价值层</view>
+        <view class="level-desc">{{v.levels.value}}</view>
+      </view>
+      <view class="level-card level-structure">
+        <view class="level-name">结构层</view>
+        <view class="level-desc">{{v.levels.structure}}</view>
+      </view>
+      <view class="level-card level-parameters">
+        <view class="level-name">参数层</view>
+        <view class="level-desc">{{v.levels.parameters}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 关键词五段闭环 -->
+  <view class="group" bindtap="onToggle" data-key="keywordLoop">
+    <view class="group-header">
+      <view class="group-title">🔄 关键词五段闭环</view>
+      <view class="group-arrow {{open.keywordLoop ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.keywordLoop}}" class="keyword-section">
+      <view class="keyword-hint">{{v.keyword_loop.rhythm}}</view>
+      <view class="keyword-loop-wrap">
+        <view 
+          wx:for="{{v.keyword_loop.sequence}}" 
+          wx:key="*this" 
+          class="loop-node"
+        >
+          <view class="loop-num">{{index + 1}}</view>
+          <view class="loop-label">{{item}}</view>
+          <view wx:if="{{index < v.keyword_loop.sequence.length - 1}}" class="loop-arrow">›</view>
+        </view>
+      </view>
+      <view class="summary-title">每段小结保存</view>
+      <view class="summary-item" wx:for="{{v.keyword_loop.summary}}" wx:for-item="s" wx:key="*this">· {{s}}</view>
+      <view class="design-title">规则起草七步</view>
+      <view class="design-item" wx:for="{{v.rule_design_loop}}" wx:key="index">· {{item}}</view>
+    </view>
+  </view>
+
+  <!-- 十项质量标准 -->
+  <view class="group" bindtap="onToggle" data-key="standards">
+    <view class="group-header">
+      <view class="group-title">📏 十项质量标准</view>
+      <view class="group-arrow {{open.standards ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.standards}}" class="standards-list">
+      <view 
+        wx:for="{{v.quality_standards}}" 
+        wx:key="id"
+        class="standard-item"
+      >
+        <view class="std-head">
+          <view class="std-id">{{item.id}}</view>
+          <view class="std-name">{{item.name}}</view>
+        </view>
+        <view class="std-criterion">{{item.criterion}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 15 个治理分析模式 -->
+  <view class="group" bindtap="onToggle" data-key="patterns">
+    <view class="group-header">
+      <view class="group-title">🧩 15 个治理分析模式</view>
+      <view class="group-arrow {{open.patterns ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.patterns}}" class="patterns-list">
+      <view 
+        wx:for="{{v.method_patterns}}" 
+        wx:key="id"
+        class="pattern-item"
+      >
+        <view class="pattern-head" bindtap="onTogglePattern" data-id="{{item.id}}">
+          <view class="pattern-id">{{item.id}}</view>
+          <view class="pattern-name">{{item.name}}</view>
+          <view class="pattern-expand">{{patternOpen[item.id] ? '收起' : '展开'}}</view>
+        </view>
+        <view wx:if="{{patternOpen[item.id]}}" class="pattern-detail">
+          <view class="pd-row"><text class="pd-label">信号</text>{{item.signal}}</view>
+          <view class="pd-row"><text class="pd-label">探讨方向</text>{{item.move}}</view>
+          <view class="pd-row"><text class="pd-label">代价</text>{{item.cost}}</view>
+          <view class="pd-row"><text class="pd-label">失效形态</text>{{item.failure}}</view>
+          <view wx:if="{{item.source_ids}}" class="pd-row">
+            <text class="pd-label">依据</text>
+            <text class="source-tag" wx:for="{{item.source_ids}}" wx:for-item="sid" wx:key="*this">{{sid}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 六类压力测试 -->
+  <view class="group" bindtap="onToggle" data-key="pressures">
+    <view class="group-header">
+      <view class="group-title">⚡ 六类压力测试</view>
+      <view class="group-arrow {{open.pressures ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.pressures}}" class="pressures-list">
+      <view wx:for="{{v.pressure_tests}}" wx:key="name" class="pressure-item">
+        <view class="pressure-name">{{item.name}}</view>
+        <view wx:if="{{item.example}}" class="pressure-example">{{item.example}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 规则试稿八层结构 -->
+  <view class="group" bindtap="onToggle" data-key="ruleLayers">
+    <view class="group-header">
+      <view class="group-title">📑 规则试稿八层结构</view>
+      <view class="group-arrow {{open.ruleLayers ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.ruleLayers}}" class="rule-layers-list">
+      <view wx:for="{{v.rule_layers}}" wx:key="name" class="rule-layer-item">
+        <view class="rl-name">{{item.name}}</view>
+        <view wx:if="{{item.question}}" class="rl-question">{{item.question}}</view>
+      </view>
+      <view wx:if="{{v.multilayer_trial}}" class="trial-box">
+        <view class="trial-header">研究示例（未确认）</view>
+        <view wx:if="{{v.multilayer_trial.status}}" class="trial-status">{{v.multilayer_trial.status}}</view>
+        <view wx:if="{{v.multilayer_trial.spoken_first_move}}" class="trial-quote">「{{v.multilayer_trial.spoken_first_move}}」</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 家族治理案例卡 -->
+  <view class="group" bindtap="onToggle" data-key="caseCards">
+    <view class="group-header">
+      <view class="group-title">🏢 家族治理案例卡</view>
+      <view class="group-arrow {{open.caseCards ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.caseCards}}" class="case-cards">
+      <view 
+        wx:for="{{v.checked_case_cards}}" 
+        wx:key="id"
+        class="case-card"
+      >
+        <view class="case-head" bindtap="onToggleCard" data-id="{{item.id}}">
+          <view class="case-name">{{item.id}}</view>
+          <view class="case-source">{{item.source_id}}</view>
+          <view class="case-expand">{{cardOpen[item.id] ? '收起' : '展开'}}</view>
+        </view>
+        <view wx:if="{{cardOpen[item.id]}}" class="case-detail">
+          <view class="pd-row"><text class="pd-label">出处</text>{{item.locator}}</view>
+          <view class="pd-row"><text class="pd-label">事实</text>{{item.fact}}</view>
+          <view class="pd-row"><text class="pd-label">可探讨</text>{{item.question}}</view>
+          <view class="pd-row"><text class="pd-label">限制</text>{{item.boundary}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 诊断七步骤 -->
+  <view class="group" bindtap="onToggle" data-key="diagnostic">
+    <view class="group-header">
+      <view class="group-title">🔍 诊断七步骤</view>
+      <view class="group-arrow {{open.diagnostic ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.diagnostic}}" class="diagnostic-list">
+      <view wx:for="{{v.diagnostic_steps}}" wx:for-item="step" wx:key="*this" class="diag-item">
+        <view class="diag-num">{{index + 1}}</view>
+        <view class="diag-text">{{step}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 口语替换表 -->
+  <view class="group" bindtap="onToggle" data-key="oral">
+    <view class="group-header">
+      <view class="group-title">🗣️ 口语替换表</view>
+      <view class="group-arrow {{open.oral ? 'open' : ''}}">›</view>
+    </view>
+    <view wx:if="{{open.oral}}" class="oral-list">
+      <view wx:for="{{v.word_choices}}" wx:key="written" class="oral-item">
+        <view class="oral-written">{{item.written}}</view>
+        <view class="oral-arrow">→</view>
+        <view class="oral-speaking">{{item.spoken}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="footer-note">候选版本 · 未行为实测 · 2026-11-03 导出</view>
+</view>

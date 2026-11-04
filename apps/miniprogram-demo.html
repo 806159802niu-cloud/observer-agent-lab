@@ -599,6 +599,71 @@
   @media (min-width: 480px) {
     .preview-hint { display: block; }
   }
+
+  /* ============ INTERVIEWER PAGE v2.4.12 ============ */
+  .interviewer-page { padding: 16px; background: #f7f7f9; }
+  .iv2412-header {
+    background: linear-gradient(135deg, #1a1a2e, #3d3d5c);
+    color: #fff; border-radius: 14px; padding: 20px; margin-bottom: 16px;
+  }
+  .iv2412-top { display: flex; justify-content: space-between; margin-bottom: 8px; }
+  .iv2412-badge {
+    background: rgba(255,255,255,0.15); padding: 2px 10px; border-radius: 8px; font-size: 12px; font-weight: 600;
+  }
+  .iv2412-status { font-size: 11px; color: #ffd166; background: rgba(255,209,102,0.15); padding: 2px 8px; border-radius: 6px; }
+  .iv2412-title { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
+  .iv2412-sub { font-size: 13px; color: #a0a0c0; }
+  .iv2412-group { background: #fff; border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.04); }
+  .iv2412-ghdr { font-size: 14px; font-weight: 700; color: #1a1a2e; margin-bottom: 10px; }
+  .iv2412-levels { display: flex; flex-direction: column; gap: 8px; }
+  .iv2412-level { border-radius: 8px; padding: 10px 12px; display: flex; flex-direction: column; gap: 2px; }
+  .iv2412-level b { font-size: 13px; }
+  .iv2412-level span { font-size: 12px; line-height: 1.5; }
+  .iv2412-level.lv { background: #e8f0fe; border-left: 3px solid #1a73e8; }
+  .iv2412-level.ls { background: #e6f4ea; border-left: 3px solid #188038; }
+  .iv2412-level.lp { background: #fef7e0; border-left: 3px solid #b06000; }
+  .iv2412-level.lv b { color: #1a73e8; }
+  .iv2412-level.ls b { color: #188038; }
+  .iv2412-level.lp b { color: #b06000; }
+  .iv2412-loop { font-size: 13px; color: #333; line-height: 2; }
+  .iv2412-hint { font-size: 12px; color: #888; background: #f8f8ff; padding: 8px 10px; border-radius: 6px; margin-top: 8px; }
+  .iv2412-standards { display: flex; flex-direction: column; gap: 8px; }
+  .iv2412-std { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid #f5f5f5; }
+  .iv2412-std:last-child { border-bottom: none; }
+  .iv2412-std-id { width: 28px; height: 28px; border-radius: 6px; background: linear-gradient(135deg, #1a1a2e, #3d3d5c); color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .iv2412-std-main b { font-size: 13px; color: #1a1a2e; }
+  .iv2412-std-main p { font-size: 12px; color: #555; margin: 2px 0 0; line-height: 1.5; }
+  .iv2412-pattern { border: 1px solid #eee; border-radius: 8px; margin-bottom: 8px; overflow: hidden; }
+  .iv2412-pattern-h { display: flex; align-items: center; padding: 8px 10px; background: #fafafa; cursor: pointer; }
+  .iv2412-pattern-id { font-size: 10px; font-weight: 700; color: #fff; background: linear-gradient(135deg, #1a1a2e, #3d3d5c); padding: 2px 6px; border-radius: 4px; margin-right: 8px; }
+  .iv2412-pattern-name { flex: 1; font-size: 12px; font-weight: 500; color: #333; }
+  .iv2412-pattern-etc { font-size: 11px; color: #999; }
+  .iv2412-pattern-d { padding: 10px 12px; font-size: 11px; color: #555; background: #fff; border-top: 1px solid #f0f0f0; line-height: 1.6; }
+  .iv2412-pattern-d div { margin-bottom: 4px; }
+  .iv2412-pattern-d b { color: #1a1a2e; margin-right: 6px; }
+  .iv2412-pattern-d .src-tag { display: inline-block; font-size: 10px; color: #1a73e8; background: #e8f0fe; padding: 1px 6px; border-radius: 4px; margin-right: 4px; }
+  .iv2412-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .iv2412-chip { font-size: 11px; background: #fff8e1; border: 1px solid #ffe082; color: #8d6e00; padding: 4px 10px; border-radius: 12px; }
+  .iv2412-rules { display: flex; flex-direction: column; gap: 4px; }
+  .iv2412-rule { display: flex; padding: 6px 0; border-bottom: 1px solid #f5f5f5; font-size: 12px; }
+  .iv2412-rule:last-child { border-bottom: none; }
+  .iv2412-rule b { width: 80px; flex-shrink: 0; color: #1a1a2e; }
+  .iv2412-rule span { flex: 1; color: #555; line-height: 1.5; }
+  .iv2412-cards { display: flex; flex-direction: column; gap: 8px; }
+  .iv2412-card { border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
+  .iv2412-card-h { display: flex; align-items: center; padding: 8px 10px; background: #fafafa; cursor: pointer; }
+  .iv2412-card-name { flex: 1; font-size: 12px; font-weight: 600; color: #333; }
+  .iv2412-card-src { font-size: 10px; color: #1a73e8; background: #e8f0fe; padding: 1px 6px; border-radius: 4px; margin-right: 6px; }
+  .iv2412-card-d { padding: 10px 12px; font-size: 11px; color: #555; background: #fff; border-top: 1px solid #f0f0f0; line-height: 1.6; }
+  .iv2412-card-d div { margin-bottom: 4px; }
+  .iv2412-card-d b { color: #1a1a2e; margin-right: 6px; }
+  .iv2412-oral { display: flex; flex-direction: column; gap: 4px; }
+  .iv2412-oral-item { display: flex; align-items: center; padding: 5px 0; border-bottom: 1px solid #f5f5f5; font-size: 12px; }
+  .iv2412-oral-item:last-child { border-bottom: none; }
+  .iv2412-oral-item .from { flex: 1; color: #aaa; text-decoration: line-through; }
+  .iv2412-oral-item .arrow { margin: 0 10px; color: #ccc; }
+  .iv2412-oral-item .to { flex: 1; color: #188038; font-weight: 500; }
+  .iv2412-footer { text-align: center; font-size: 11px; color: #bbb; padding: 20px 0 40px; }
 </style>
 </head>
 <body>
@@ -635,6 +700,14 @@
     </div>
 
     <div class="section-hdr">核心功能</div>
+    <button class="feature-card" data-go="interviewer">
+      <div class="f-icon" style="background:#fde8e8;color:#d32f2f;">🎯</div>
+      <div class="f-info">
+        <div class="f-title">采访者 v2.4.12</div>
+        <div class="f-desc">治理专家层人设 · 十项标准 · 15 模式</div>
+      </div>
+      <div class="f-arrow">›</div>
+    </button>
     <button class="feature-card" data-go="interview">
       <div class="f-icon" style="background:#e8f0fe;color:#1a73e8;">🎙️</div>
       <div class="f-info">
@@ -1186,6 +1259,66 @@
   </div>
 
   <!-- ============== PAGE: INTERVIEW (CORE DEMO) ============== -->
+  <div class="page interviewer-page" data-page="interviewer">
+    <div class="iv2412-header">
+      <div class="iv2412-top">
+        <span class="iv2412-badge">v2.4.12</span>
+        <span class="iv2412-status">候选 · 未行为实测</span>
+      </div>
+      <div class="iv2412-title">采访者 Agent</div>
+      <div class="iv2412-sub">务虚的挑战者 + 治理专家层</div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">🏛️ 治理三层</div>
+      <div class="iv2412-levels">
+        <div class="iv2412-level lv"><b>价值层</b><span>为什么、什么值得守、愿付什么代价</span></div>
+        <div class="iv2412-level ls"><b>结构层</b><span>意见/核验/同意/暂停/复议/决定/执行</span></div>
+        <div class="iv2412-level lp"><b>参数层</b><span>具体数值，关键矛盾外可省略</span></div>
+      </div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">🔄 关键词五段闭环</div>
+      <div class="iv2412-loop">
+        <span>①原因</span>›<span>②详细故事</span>›<span>③规则落地</span>›<span>④取舍挑战</span>›<span>⑤更合适的规则总结</span>
+      </div>
+      <div class="iv2412-hint">成因投入 &gt; 落地投入；不逐条补完整制度</div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">📏 十项质量标准</div>
+      <div id="iv2412-standards"></div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">🧩 15 个治理分析模式（可展开）</div>
+      <div id="iv2412-patterns"></div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">⚡ 六类压力测试</div>
+      <div id="iv2412-pressures" class="iv2412-chips"></div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">📑 规则试稿八层</div>
+      <div id="iv2412-rules"></div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">🏢 家族治理案例卡</div>
+      <div id="iv2412-cards"></div>
+    </div>
+
+    <div class="iv2412-group">
+      <div class="iv2412-ghdr">🗣️ 口语替换</div>
+      <div id="iv2412-oral"></div>
+    </div>
+
+    <div class="iv2412-footer">候选版本 · 2026-11-03 导出</div>
+  </div>
+
   <div class="page interview-page" data-page="interview">
     <div class="iv-topbar">
       <div class="iv-topbar-left">
@@ -1258,6 +1391,7 @@ function renderPage(page) {
   }
 
   // Special handlers
+  if (page === 'interviewer') setupInterviewer();
   if (page === 'interview') startInterviewDemo();
   if (page === 'history') setupHistoryFilters();
   if (page === 'history-detail') setupHistoryDetail();
@@ -1429,6 +1563,145 @@ function clearInterviewTimers() {
   interviewState.autoTimers.forEach(t => clearTimeout(t));
   interviewState.hintTimers = [];
   interviewState.autoTimers = [];
+}
+
+// ============================================================
+// INTERVIEWER PAGE: render v2.4.12 persona
+// ============================================================
+const INTERVIEWER_V2412 = {
+  standards: [
+    { id: 'Q1', name: '为什么', criterion: '规则能说明保护的目的、依据与可能牺牲的目标，而非只有流程。' },
+    { id: 'Q2', name: '分层', criterion: '价值、结构与参数区分；选择能揭示核心矛盾的结构深入，非关键细节可以省略。' },
+    { id: 'Q3', name: '权利拆分', criterion: '意见、核验、同意、暂停、复议、最终决定与执行按议题区分，不强制每项都设岗。' },
+    { id: 'Q4', name: '事前性', criterion: '区分行动前的准入/暂停/恢复条件与事后报告回看；回看不能代替停止约定。' },
+    { id: 'Q5', name: '两类错误', criterion: '检验错放风险与错拦机会的成本、谁承受；不强求可以统一量化。' },
+    { id: 'Q6', name: '举证责任', criterion: '问清谁须证明何事、何种依据足以改变决定；不让异议者负担证明灾难必然发生。' },
+    { id: 'Q7', name: '创始人缺席', criterion: '去掉本人威望，权利、能力、信息与资源仍有承接；纸面授权不算自动完成。' },
+    { id: 'Q8', name: '可解释修订', criterion: '保留原意与适用边界，讨论解释权/争议/修订；参数不硬填。' },
+    { id: 'Q9', name: '压力测试', criterion: '按相关性检验缺席、套利、误伤、激励、错放错拦和极端条件；口头一次一个。' },
+    { id: 'Q10', name: '不过度固化', criterion: '保留后代判断和学习空间，能说清哪些应定、哪些应保留原则或未知。' }
+  ],
+  patterns: [
+    { id: 'M01', name: '价值/家族/所有权/经营分层', signal: '一家人在同一件事中戴几顶帽子', move: '分别讨论家族目的、股东权利、董事会监督和经营授权', cost: '分层增加协商成本', failure: '用家族身份绕过经营权限', src: ['IFC','KIRKBI'] },
+    { id: 'M02', name: '意见/同意/决定/执行权拆分', signal: '提出风险是否等于可以拦下项目', move: '拆开提供信息、同意、决定和执行；暂停/复议权另议', cost: '接口增加、可能出现事实否决', failure: '写了角色名称却没解决争议', src: ['BAIN'] },
+    { id: 'M03', name: '举证责任分配', signal: '反对者被要求证明一定会出事', move: '推进者须证明什么可控、异议者须提供哪些具体现象', cost: '举证更重可能错失窗口', failure: '强者垄断证据标准', src: ['项目推演'] },
+    { id: 'M04', name: '事前暂停与恢复条件', signal: '只说有人盯、未定何时必须停', move: '约定什么信号触发暂停、恢复需什么证据', cost: '可能误停或延迟', failure: '事后移动门槛、用恢复审批压人', src: ['项目推演'] },
+    { id: 'M05', name: '按可逆性与后果分层', signal: '所有事都重审批或都追速度', move: '比较可回退试错与不可恢复损害，采用不同判断强度', cost: '分类本身需判断', failure: '把对公司可逆但对客户不可逆的损害误归轻流程', src: ['AMAZON'] },
+    { id: 'M06', name: '分段承诺与有限验证', signal: '只能全上或全停', move: '先验证后扩大、隔离受影响部分', cost: '小规模未必代表量产', failure: '试点事实转为全面承诺', src: ['项目推演'] },
+    { id: 'M07', name: '独立核验与利益冲突', signal: '项目进度激励左右专业结论', move: '增加独立专业意见、回避或另找核验来源', cost: '额外时间、费用和信息传递', failure: '挂名独立、缺专业能力', src: ['FRC'] },
+    { id: 'M08', name: '专业判断与经营取舍分责', signal: '老板不懂技术但必须决策', move: '专业方对事实说明负责，经营方对接受何种风险负责', cost: '专业不确定性不能凭分工消失', failure: '经营承诺免责化', src: ['BAIN','FRC'] },
+    { id: 'M09', name: '错放与错拦的双向代价', signal: '一次失败就推出以后都要停', move: '分别检验错误推进与不必要暂停的代价', cost: '难估概率和长期损失', failure: '硬把两类后果折成同一个金额', src: ['项目推演'] },
+    { id: 'M10', name: '决定质量与结果分开复盘', signal: '结果坏就追责、结果好就免问', move: '先看当时信息、推理与约定，再看结果用于学习', cost: '需要保留当时依据', failure: '用事后信息冒充事前可知', src: ['OUTCOME'] },
+    { id: 'M11', name: '创始人缺席与影子权威测试', signal: '纸面由CEO决定、现场仍等老板', move: '删除创始人名字再看谁有权与能力', cost: '放权可能牺牲灵活性', failure: '纸面退出、私下指令', src: ['IFC','KIRKBI'] },
+    { id: 'M12', name: '家族任职/收益/控制分开', signal: '股份被当作岗位资格', move: '分别谈就业资格、岗位、股东收益与监督', cost: '家庭成员可能感到被排除', failure: '岗位标准选择性适用', src: ['IFC','BOSCH'] },
+    { id: 'M13', name: '异议后的复议与争议解决', signal: '单入口把不同意见压掉', move: '区分谁可申请再看、谁须回应、谁最终决定', cost: '多入口可拖慢', failure: '异议变私怨武器', src: ['BAIN','IFC'] },
+    { id: 'M14', name: '复审与修订权限', signal: '为守住原意把规则永远写死', move: '讨论什么新情况触发复审、谁能发起修订', cost: '降低永久承诺感', failure: '每次不方便就改规则', src: ['IFC','FRC'] },
+    { id: 'M15', name: '目的解释/边界/先例', signal: '后代只剩字面遵守或任意解释', move: '保留原意、典型/边界例、讨论解释权', cost: '解释材料多、先例负担', failure: '用创始人当年个案冻结后代', src: ['IFC'] }
+  ],
+  pressures: [
+    { name: '缺席压力', example: '创始人不在时，规则能否自主运行' },
+    { name: '钻空子', example: '有人只做字面、不做原意' },
+    { name: '误伤', example: '规则把本来合理的事也拦住' },
+    { name: '激励扭曲', example: '规则反而鼓励了某种坏行为' },
+    { name: '错放 vs 错拦', example: '放过了真正风险 vs 拦下了好机会' },
+    { name: '极端情形', example: '行业寒冬或大动荡时规则怎么办' }
+  ],
+  ruleLayers: [
+    { name: 'purpose', question: '这条规则保护什么目的、依据是什么、愿牺牲什么？' },
+    { name: 'red_line', question: '什么情况不能碰，硬约束是什么？' },
+    { name: 'judgment_zone', question: '哪些是判断区，需比较后果而非一刀切？' },
+    { name: 'rights', question: '意见/核验/同意/暂停/复议/决定/执行分别归谁？' },
+    { name: 'ex_ante', question: '事前条件：什么信号触发暂停、谁能恢复？' },
+    { name: 'review', question: '复盘机制：怎么区分坏结果与坏决定？' },
+    { name: 'interpretation_revision', question: '谁能解释原意、什么时候触发修订？' },
+    { name: 'precedents', question: '有没有典型/边界/拒绝过的案例？' }
+  ],
+  cards: [
+    { id: 'SABIS-historical', src: 'IFC', fact: '历史政策将家族身份与就业资格、岗位薪酬及股权回报区分。', question: '后代继承所有者身份，还是必须继承经营岗位？', boundary: '不可称为现行，不移植参数。' },
+    { id: 'Carvajal-historical', src: 'IFC', fact: '目录覆盖家族机构、企业机构、股权政策、冲突解决与协议更新。', question: '家族想留下的方向，谁有权解释和更新？', boundary: '只见目录，不编造投票门槛或程序。' },
+    { id: 'KIRKBI-roles', src: 'KIRKBI', fact: '官方区分家族长期方向、控股层和业务层的治理职责。', question: '留下的是家族决定方向的权利，还是每项经营决定的最后一句话？', boundary: '官网自述不能证明无隐性干预。' },
+    { id: 'Bosch-separation', src: 'BOSCH', fact: '资本持有与企业投票控制分开安排。', question: '收益、使命、控制，三件事是否都必须由同一身份承担？', boundary: '特定法律历史产物，不推荐照搬载体。' }
+  ],
+  oral: [
+    { from: '检查节点', to: '约个时间再看 / 到时回来谈' },
+    { from: '机制', to: '做法 / 安排' },
+    { from: '反面主张', to: '另一种担心 / 另一面' },
+    { from: '未决张力', to: '还没弄清的地方' },
+    { from: '触发条件', to: '什么情况要走这一步' },
+    { from: '评估人', to: '谁来判断 / 懂这件事的人' },
+    { from: '剩余风险', to: '还没弄清、但要承担的风险' },
+    { from: '最终决策者', to: '最后拿主意的人' }
+  ]
+};
+
+function setupInterviewer() {
+  const d = INTERVIEWER_V2412;
+
+  // Standards
+  const standardsEl = document.getElementById('iv2412-standards');
+  standardsEl.innerHTML = d.standards.map(s =>
+    `<div class="iv2412-std"><div class="iv2412-std-id">${s.id}</div><div class="iv2412-std-main"><b>${s.name}</b><p>${s.criterion}</p></div></div>`
+  ).join('');
+
+  // Patterns (collapsible)
+  const patternsEl = document.getElementById('iv2412-patterns');
+  patternsEl.innerHTML = d.patterns.map(p => `
+    <div class="iv2412-pattern">
+      <div class="iv2412-pattern-h">
+        <span class="iv2412-pattern-id">${p.id}</span>
+        <span class="iv2412-pattern-name">${p.name}</span>
+        <span class="iv2412-pattern-etc">展开</span>
+      </div>
+      <div class="iv2412-pattern-d" style="display:none;">
+        <div><b>信号</b>${p.signal}</div>
+        <div><b>探讨方向</b>${p.move}</div>
+        <div><b>代价</b>${p.cost}</div>
+        <div><b>失效形态</b>${p.failure}</div>
+        <div><b>依据</b>${p.src.map(s => `<span class="src-tag">${s}</span>`).join('')}</div>
+      </div>
+    </div>
+  `).join('');
+  patternsEl.querySelectorAll('.iv2412-pattern-h').forEach(h => {
+    h.onclick = () => {
+      const d = h.nextElementSibling;
+      d.style.display = d.style.display === 'none' ? 'block' : 'none';
+      h.querySelector('.iv2412-pattern-etc').textContent = d.style.display === 'none' ? '展开' : '收起';
+    };
+  });
+
+  // Pressures
+  document.getElementById('iv2412-pressures').innerHTML =
+    d.pressures.map(p => `<div class="iv2412-chip">${p.name}${p.example ? ' · ' + p.example : ''}</div>`).join('');
+
+  // Rule layers
+  document.getElementById('iv2412-rules').innerHTML =
+    d.ruleLayers.map(r => `<div class="iv2412-rule"><b>${r.name}</b><span>${r.question}</span></div>`).join('');
+
+  // Case cards (collapsible)
+  const cardsEl = document.getElementById('iv2412-cards');
+  cardsEl.innerHTML = d.cards.map(c => `
+    <div class="iv2412-card">
+      <div class="iv2412-card-h">
+        <span class="iv2412-card-name">${c.id}</span>
+        <span class="iv2412-card-src">${c.src}</span>
+      </div>
+      <div class="iv2412-card-d" style="display:none;">
+        <div><b>事实</b>${c.fact}</div>
+        <div><b>可探讨</b>${c.question}</div>
+        <div><b>限制</b>${c.boundary}</div>
+      </div>
+    </div>
+  `).join('');
+  cardsEl.querySelectorAll('.iv2412-card-h').forEach(h => {
+    h.onclick = () => {
+      const d = h.nextElementSibling;
+      d.style.display = d.style.display === 'none' ? 'block' : 'none';
+    };
+  });
+
+  // Oral
+  document.getElementById('iv2412-oral').innerHTML =
+    d.oral.map(o => `<div class="iv2412-oral-item"><span class="from">${o.from}</span><span class="arrow">→</span><span class="to">${o.to}</span></div>`).join('');
 }
 
 function startInterviewDemo() {

@@ -1,0 +1,40 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/interviewer/interviewer",
+    "pages/interview/interview",
+    "pages/personas/personas",
+    "pages/persona-detail/persona-detail",
+    "pages/history/history",
+    "pages/history-detail/history-detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1a1a2e",
+    "navigationBarTitleText": "Parable · 深度访谈",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f7f7f9"
+  },
+  "tabBar": {
+    "color": "#888",
+    "selectedColor": "#1a1a2e",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "🏠 首页"
+      },
+      {
+        "pagePath": "pages/personas/personas",
+        "text": "👤 人物"
+      },
+      {
+        "pagePath": "pages/history/history",
+        "text": "📋 复盘"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

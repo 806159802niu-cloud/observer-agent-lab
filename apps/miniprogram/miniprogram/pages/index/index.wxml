@@ -1,0 +1,80 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <!-- Hero 区域 -->
+  <view class="hero">
+    <view class="hero-title">Parable</view>
+    <view class="hero-subtitle">深度访谈认知工作者</view>
+    <view class="hero-desc">以对话挖掘创始人的价值偏好与判断依据</view>
+  </view>
+
+  <!-- 统计 -->
+  <view class="stats-row">
+    <view class="stat-item">
+      <view class="stat-num">{{stats.totalRounds}}</view>
+      <view class="stat-label">访谈轮次</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-num">{{stats.avgScore}}</view>
+      <view class="stat-label">平均评分</view>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <view class="stat-num">{{stats.personasCount}}</view>
+      <view class="stat-label">人物档案</view>
+    </view>
+  </view>
+
+  <!-- 快捷入口 -->
+  <view class="section-title">核心功能</view>
+  <view class="feature-list">
+    <view 
+      class="feature-card" 
+      wx:for="{{features}}" 
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="onFeatureTap"
+    >
+      <view class="feature-icon" style="background: {{item.color}}20; color: {{item.color}};">
+        {{item.icon}}
+      </view>
+      <view class="feature-info">
+        <view class="feature-title">{{item.title}}</view>
+        <view class="feature-desc">{{item.desc}}</view>
+      </view>
+      <view class="feature-arrow">›</view>
+    </view>
+  </view>
+
+  <!-- 最近一场 -->
+  <view class="section-title">最近一场访谈</view>
+  <view class="recent-card" bindtap="onRecentTap">
+    <view class="recent-header">
+      <view class="recent-title">{{recentInterview.title}}</view>
+      <view class="tag {{recentInterview.mode === 'assisted' ? 'tag-orange' : 'tag-gray'}}">
+        {{recentInterview.mode === 'assisted' ? '观察者介入' : '基线'}}
+      </view>
+    </view>
+    <view class="recent-meta">
+      <text>{{recentInterview.personaName}}</text>
+      <text class="meta-dot">·</text>
+      <text>{{recentInterview.roundCount}} 轮</text>
+      <text class="meta-dot">·</text>
+      <text>{{recentInterview.startedAt}}</text>
+    </view>
+    <view class="recent-footer">
+      <view class="score-ring" style="color: #188038;">{{recentInterview.weightedTotal}}</view>
+      <view class="score-label">综合评分</view>
+      <view class="divider-v"></view>
+      <view class="recall-info">
+        <text class="recall-rate">{{recentInterview.recallRate * 100}}%</text>
+        <text class="recall-label">埋点召回率</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 一键体验 -->
+  <view class="cta-section">
+    <view class="btn-primary" bindtap="onQuickStart">▶ 一键体验访谈模拟</view>
+  </view>
+</view>
